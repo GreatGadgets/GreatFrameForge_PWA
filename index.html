@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GreatFrameForge (GFF)</title>
     <link rel="icon" type="image/png" href="./assets/ggadgets-logo-DHXrvmgU.png">
-  <script type="module" crossorigin src="./assets/index-BeK4Yzoy.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-10Zaxe-F.css">
+  <script type="module" crossorigin src="./assets/index-B6gQEj1x.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-D-cY7_nN.css">
 <link rel="manifest" href="./manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="./registerSW.js"></script></head>
 <body class="min-h-screen p-4 md:p-6">
 
@@ -16,20 +16,20 @@
                 <img src="./assets/ggadgets-logo-DHXrvmgU.png" alt="GFF Logo" class="w-12 h-12 md:w-16 md:h-16 drop-shadow-[0_0_15px_rgba(212,175,55,0.3)]">
                 <div>
                     <h1 class="text-2xl md:text-3xl font-bold text-white tracking-tight flex items-center gap-2">
-                        GreatFrameForge <span class="text-xs md:text-sm font-normal opacity-60 mt-1">(GFF)</span>
+                        GreatFrameForge <span class="text-[10px] md:text-sm font-normal opacity-60 mt-1">(GFF)</span>
                     </h1>
                     <p class="text-lg md:text-xl text-emerald-400 italic font-black tracking-[0.2em] mt-0.5 opacity-90">Frame. Forge. Finish.</p>
                 </div>
             </div>
-            <div class="flex flex-wrap items-center gap-3 md:gap-4 w-full md:w-auto">
+            <div class="flex flex-col gap-3 w-full md:w-auto">
                 <!-- Preset Management Group -->
-                <div class="relative border border-gray-700/50 rounded-xl p-1.5 flex items-center gap-2 bg-gray-900/20 group/presets">
+                <div class="relative border border-gray-700/50 rounded-xl p-1.5 flex items-center gap-2 bg-gray-900/20 group/presets w-full">
                     <div class="absolute -top-2 left-3 px-1.5 bg-[#0b0d10] text-[9px] font-black text-gray-500 uppercase tracking-[0.2em] group-hover/presets:text-emerald-500 transition-colors">Presets</div>
                     
                     <!-- Load Preset -->
-                    <div class="relative group">
-                        <div class="inline-flex h-9 cursor-pointer">
-                            <button id="currentPresetName" class="bg-gray-800 group-hover:bg-gray-700 border border-gray-700 text-white px-3 py-1 rounded-l-lg text-[11px] font-bold transition-colors border-r-0 min-w-[80px] md:min-w-[100px]">Load</button>
+                    <div class="relative group flex-1">
+                        <div class="inline-flex h-9 cursor-pointer w-full">
+                            <button id="currentPresetName" class="flex-1 bg-gray-800 group-hover:bg-gray-700 border border-gray-700 text-white px-3 py-1 rounded-l-lg text-[11px] font-bold transition-colors border-r-0 truncate">Load</button>
                             <button class="bg-gray-800 group-hover:bg-gray-700 border border-gray-700 text-white px-2 py-1 rounded-r-lg text-sm transition-colors h-full flex items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-gray-400 group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
                             </button>
@@ -48,9 +48,9 @@
                     </div>
                     
                     <!-- Save Button -->
-                    <div class="relative group">
-                        <div class="inline-flex h-9">
-                            <button id="savePresetBtn" class="bg-emerald-600/20 hover:bg-emerald-600/30 border border-emerald-500/30 text-emerald-400 hover:text-emerald-200 px-3 py-1 rounded-l-lg text-[11px] font-bold transition-colors border-r-0 uppercase">Save</button>
+                    <div class="relative group flex-1">
+                        <div class="inline-flex h-9 w-full">
+                            <button id="savePresetBtn" class="flex-1 bg-emerald-600/20 hover:bg-emerald-600/30 border border-emerald-500/30 text-emerald-400 hover:text-emerald-200 px-3 py-1 rounded-l-lg text-[11px] font-bold transition-colors border-r-0 uppercase">Save</button>
                             <button class="bg-emerald-600/20 hover:bg-emerald-600/30 border border-emerald-500/30 text-emerald-400 px-2 py-1 rounded-r-lg transition-colors h-full flex items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
                             </button>
@@ -64,18 +64,18 @@
                     </div>
 
                     <!-- Delete Button -->
-                    <button id="deletePresetBtn" class="bg-gray-800 hover:bg-red-900/40 border border-gray-700 hover:border-red-800 text-gray-400 hover:text-red-200 px-2.5 h-9 rounded-lg transition-colors" title="Delete Selected Preset">
+                    <button id="deletePresetBtn" class="bg-gray-800 hover:bg-red-900/40 border border-gray-700 hover:border-red-800 text-gray-400 hover:text-red-200 px-2.5 h-9 rounded-lg transition-colors shrink-0" title="Delete Selected Preset">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                         </svg>
                     </button>
                 </div>
 
-                <div class="flex items-center gap-3 flex-grow md:flex-grow-0">
-                    <button id="resetBtn" class="flex-1 md:flex-none bg-red-900/40 hover:bg-red-900/60 border border-red-800 text-red-200 px-4 py-2 rounded-lg text-sm font-semibold transition-colors">Reset Default</button>
+                <div class="flex items-center gap-3 w-full">
+                    <button id="resetBtn" class="flex-1 bg-red-900/40 hover:bg-red-900/60 border border-red-800 text-red-200 px-4 py-2 rounded-lg text-sm font-semibold transition-colors">Reset Default</button>
                     
                     <!-- Export Dropdown -->
-                    <div class="flex-1 md:flex-none inline-flex">
+                    <div class="flex-1 inline-flex">
                         <button id="downloadBtn" class="flex-1 bg-blue-600/20 hover:bg-blue-600/30 border border-blue-500/50 text-blue-100 px-4 md:px-6 py-2 rounded-l-lg font-semibold transition-colors shadow-lg shadow-blue-600/20 border-r-0 whitespace-nowrap">Export 1440p</button>
                         <div class="relative group">
                             <button class="bg-blue-600/30 hover:bg-blue-600/40 border border-blue-500/50 text-blue-100 px-2 py-2 rounded-r-lg transition-colors shadow-lg shadow-blue-600/20 h-full flex items-center">
@@ -97,38 +97,32 @@
         </header>
 
         <div class="flex flex-col xl:flex-row gap-8 items-start">
-            <!-- Canvas Area (Moved to top for mobile) -->
-            <div class="w-full flex-grow flex flex-col items-center justify-start xl:sticky xl:top-6 order-1 xl:order-2">
-                <div id="canvasFrame" class="canvas-container shadow-2xl ring-1 ring-white/10 w-full shrink-0 origin-top">
-                    <canvas id="thumbnailCanvas" width="1920" height="1080" class="w-full h-auto block"></canvas>
+            <!-- Canvas Area (Sticky at top for mobile) -->
+            <div class="w-full flex-grow flex flex-col items-center justify-start sticky top-0 md:relative xl:sticky xl:top-6 z-[50] bg-[#0b0d10] py-2 md:py-0 order-1 xl:order-2">
+                <div id="canvasFrame" class="canvas-container shadow-2xl ring-1 ring-white/10 w-full shrink-0 flex items-start justify-center overflow-hidden">
+                    <canvas id="thumbnailCanvas" width="1920" height="1080" class="w-full h-auto block origin-top"></canvas>
                 </div>
                 
-                <div class="w-full flex-grow flex flex-col overflow-hidden">
-                    <!-- Controls Row -->
-                    <div class="flex justify-between items-center gap-3 mt-4 md:mt-6 w-full px-2">
-                        <!-- Left: Guide -->
-                        <div class="w-auto flex justify-start">
-                            <button id="toggleColorWheelBtn" class="h-[2.3rem] px-3 md:px-4 py-1.5 bg-emerald-500/20 hover:bg-emerald-500/30 border border-emerald-500/40 text-emerald-400 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all flex items-center gap-2 group whitespace-nowrap">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 text-emerald-500/70 group-hover:text-emerald-400 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" /></svg>
-                                <span class="hidden sm:inline">Colour Guide</span>
-                                <span class="sm:hidden">Guide</span>
+                <div class="w-full flex-grow flex flex-col overflow-hidden bg-[#0b0d10]">
+                    <!-- Controls Rows -->
+                    <div class="flex flex-col gap-3 mt-4 md:mt-6 w-full px-2">
+                        <!-- Row 1: Scale Buttons -->
+                        <div class="flex items-center justify-center gap-1.5 w-full">
+                            <button onclick="setPreviewScale('full')" class="preview-scale-btn active flex-1 h-[2.3rem] bg-gray-800 border border-blue-500 text-white rounded-lg text-[10px] font-black uppercase tracking-widest transition-all">Full</button>
+                            <button onclick="setPreviewScale('large')" class="preview-scale-btn flex-1 h-[2.3rem] bg-gray-800 border border-gray-700 text-gray-400 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all">L</button>
+                            <button onclick="setPreviewScale('medium')" class="preview-scale-btn flex-1 h-[2.3rem] bg-gray-800 border border-gray-700 text-gray-400 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all">M</button>
+                            <button onclick="setPreviewScale('small')" class="preview-scale-btn flex-1 h-[2.3rem] bg-gray-800 border border-gray-700 text-gray-400 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all">S</button>
+                        </div>
+
+                        <!-- Row 2: Guide & Safe Zones -->
+                        <div class="flex items-center justify-between gap-3 w-full">
+                            <button id="toggleColorWheelBtn" class="flex-1 h-[2.3rem] px-3 bg-emerald-500/20 hover:bg-emerald-500/30 border border-emerald-500/40 text-emerald-400 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all flex items-center justify-center gap-2 whitespace-nowrap">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" /></svg>
+                                <span>Colour Guide</span>
                             </button>
-                        </div>
-
-                        <!-- Center: Scale -->
-                        <div class="flex items-center gap-1.5 shrink-0">
-                            <button onclick="setPreviewScale('full')" class="preview-scale-btn active h-[2.3rem] px-3 md:px-4 py-1.5 bg-gray-800 border border-blue-500 text-white rounded-lg text-[10px] font-black uppercase tracking-widest transition-all">Full</button>
-                            <button onclick="setPreviewScale('large')" class="preview-scale-btn h-[2.3rem] px-3 md:px-4 py-1.5 bg-gray-800 border border-gray-700 text-gray-400 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all">L</button>
-                            <button onclick="setPreviewScale('medium')" class="preview-scale-btn h-[2.3rem] px-3 md:px-4 py-1.5 bg-gray-800 border border-gray-700 text-gray-400 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all">M</button>
-                            <button onclick="setPreviewScale('small')" class="preview-scale-btn h-[2.3rem] px-3 md:px-4 py-1.5 bg-gray-800 border border-gray-700 text-gray-400 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all">S</button>
-                        </div>
-
-                        <!-- Right: Safe Zones -->
-                        <div class="w-auto flex justify-end">
-                            <button id="toggleYTGuidesBtn" class="h-[2.3rem] px-3 md:px-4 py-1.5 bg-emerald-500/20 hover:bg-emerald-500/30 border border-emerald-500/40 text-emerald-400 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all flex items-center gap-2 group whitespace-nowrap">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 text-emerald-500/70 group-hover:text-emerald-400 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
-                                <span class="hidden sm:inline">Safe Zones</span>
-                                <span class="sm:hidden">Zones</span>
+                            <button id="toggleYTGuidesBtn" class="flex-1 h-[2.3rem] px-3 bg-emerald-500/20 hover:bg-emerald-500/30 border border-emerald-500/40 text-emerald-400 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all flex items-center justify-center gap-2 whitespace-nowrap">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
+                                <span>Safe Zones</span>
                             </button>
                         </div>
                     </div>
@@ -137,7 +131,7 @@
                 </div>
             </div>
 
-            <!-- Controls (Moved to bottom for mobile) -->
+            <!-- Controls -->
             <div class="w-full xl:w-[600px] shrink-0 space-y-4 bg-gray-900 p-5 rounded-xl border border-gray-800 h-auto xl:h-[82vh] overflow-y-visible xl:overflow-y-scroll sidebar-scroll order-2 xl:order-1">
                 
                 <!-- 1. Image Frame -->
@@ -163,7 +157,7 @@
                                     <input type="text" id="bgColor" value="#111827" style="background-color: #111827" class="state-val color-picker" title="Choose BG Colour">
                                 </div>
                                 <div class="flex flex-col md:flex-row md:items-center gap-3 pt-1">
-                                    <label class="w-[85px] text-[10px] text-gray-400 uppercase tracking-widest font-black shrink-0">Border</label>
+                                    <label class="w-full md:w-[85px] text-[10px] text-gray-400 uppercase tracking-widest font-black shrink-0">Border</label>
                                     <div class="flex items-center gap-2 flex-grow">
                                         <input type="range" class="state-val sync-slider slider-bar slider-border" data-link="baseBorderW" min="0" max="40" value="0">
                                         <input type="number" class="state-val sync-number entry-base number-entry" data-link="baseBorderW" value="0">
@@ -180,20 +174,20 @@
                                         </button>
                                     </div>
                                     <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                                        <div><label class="text-[10px] text-gray-400 uppercase font-black block mb-1">Pos X</label><div class="flex items-center gap-2"><span class="text-xs text-gray-500 w-4 cursor-pointer reset-label" title="Reset" data-default="0">X</span><input type="range" class="state-val sync-slider slider-bar slider-pan" data-link="basePosX" min="-1000" max="1000" value="0"><input type="number" class="state-val sync-number entry-base number-entry h-[2.3rem]" data-link="basePosX" value="0"></div></div>
-                                        <div><label class="text-[10px] text-gray-400 uppercase font-black block mb-1">Pos Y</label><div class="flex items-center gap-2"><span class="text-xs text-gray-500 w-4 cursor-pointer reset-label" title="Reset" data-default="0">Y</span><input type="range" class="state-val sync-slider slider-bar slider-pan" data-link="basePosY" min="-1000" max="1000" value="0"><input type="number" class="state-val sync-number entry-base number-entry h-[2.3rem]" data-link="basePosY" value="0"></div></div>
+                                        <div><div class="flex items-center gap-2"><label class="text-[10px] text-gray-400 uppercase font-black w-10 shrink-0">Pos X</label><input type="range" class="state-val sync-slider slider-bar slider-pan" data-link="basePosX" min="-1000" max="1000" value="0"><input type="number" class="state-val sync-number entry-base number-entry h-[2.3rem]" data-link="basePosX" value="0"></div></div>
+                                        <div><div class="flex items-center gap-2"><label class="text-[10px] text-gray-400 uppercase font-black w-10 shrink-0">Pos Y</label><input type="range" class="state-val sync-slider slider-bar slider-pan" data-link="basePosY" min="-1000" max="1000" value="0"><input type="number" class="state-val sync-number entry-base number-entry h-[2.3rem]" data-link="basePosY" value="0"></div></div>
                                     </div>
                                     <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                                        <div><label class="text-[10px] text-gray-400 uppercase font-black block mb-1">Pan X</label><div class="flex items-center gap-2"><span class="text-xs text-gray-500 w-4 cursor-pointer reset-label" title="Reset" data-default="0">X</span><input type="range" class="state-val sync-slider slider-bar slider-pan" data-link="baseX" min="-1000" max="1000" value="0"><input type="number" class="state-val sync-number entry-base number-entry" data-link="baseX" value="0"></div></div>
-                                        <div><label class="text-[10px] text-gray-400 uppercase font-black block mb-1">Pan Y</label><div class="flex items-center gap-2"><span class="text-xs text-gray-500 w-4 cursor-pointer reset-label" title="Reset" data-default="0">Y</span><input type="range" class="state-val sync-slider slider-bar slider-pan" data-link="baseY" min="-1000" max="1000" value="0"><input type="number" class="state-val sync-number entry-base number-entry" data-link="baseY" value="0"></div></div>
+                                        <div><div class="flex items-center gap-2"><label class="text-[10px] text-gray-400 uppercase font-black w-10 shrink-0">Pan X</label><input type="range" class="state-val sync-slider slider-bar slider-pan" data-link="baseX" min="-1000" max="1000" value="0"><input type="number" class="state-val sync-number entry-base number-entry" data-link="baseX" value="0"></div></div>
+                                        <div><div class="flex items-center gap-2"><label class="text-[10px] text-gray-400 uppercase font-black w-10 shrink-0">Pan Y</label><input type="range" class="state-val sync-slider slider-bar slider-pan" data-link="baseY" min="-1000" max="1000" value="0"><input type="number" class="state-val sync-number entry-base number-entry" data-link="baseY" value="0"></div></div>
                                     </div>
                                     <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                                        <div><label class="text-[10px] text-gray-400 uppercase font-black block mb-1">Zoom</label><div class="flex items-center gap-2"><input type="range" class="state-val sync-slider slider-bar slider-size" data-link="baseScale" min="0.5" max="3" step="0.01" value="1"><input type="number" class="state-val sync-number entry-base number-entry" data-link="baseScale" value="1"></div></div>
-                                        <div><label class="text-[10px] text-gray-400 uppercase font-black block mb-1">Rotate</label><div class="flex items-center gap-2"><input type="range" class="state-val sync-slider slider-bar slider-rotate" data-link="baseRot" min="-180" max="180" value="0"><input type="number" class="state-val sync-number entry-base number-entry" data-link="baseRot" value="0"></div></div>
+                                        <div><div class="flex items-center gap-2"><label class="text-[10px] text-gray-400 uppercase font-black w-10 shrink-0">Zoom</label><input type="range" class="state-val sync-slider slider-bar slider-size" data-link="baseScale" min="0.5" max="3" step="0.01" value="1"><input type="number" class="state-val sync-number entry-base number-entry" data-link="baseScale" value="1"></div></div>
+                                        <div><div class="flex items-center gap-2"><label class="text-[10px] text-gray-400 uppercase font-black w-10 shrink-0">Rotate</label><input type="range" class="state-val sync-slider slider-bar slider-rotate" data-link="baseRot" min="-180" max="180" value="0"><input type="number" class="state-val sync-number entry-base number-entry" data-link="baseRot" value="0"></div></div>
                                     </div>
                                     <div class="grid grid-cols-1 md:grid-cols-2 gap-3 pt-1 border-t border-gray-800/50">
-                                        <div><label class="text-[10px] text-gray-400 uppercase font-black block mb-1">Contrast</label><div class="flex items-center gap-2"><input type="range" class="state-val sync-slider slider-bar accent-gray-400" data-link="baseContrast" min="0" max="200" value="100"><input type="number" class="state-val sync-number entry-base number-entry" data-link="baseContrast" value="100"></div></div>
-                                        <div><label class="text-[10px] text-gray-400 uppercase font-black block mb-1">Brightness</label><div class="flex items-center gap-2"><input type="range" class="state-val sync-slider slider-bar accent-gray-400" data-link="baseBrightness" min="0" max="200" value="100"><input type="number" class="state-val sync-number entry-base number-entry" data-link="baseBrightness" value="100"></div></div>
+                                        <div><div class="flex items-center gap-2"><label class="text-[10px] text-gray-400 uppercase font-black w-10 shrink-0">Cont.</label><input type="range" class="state-val sync-slider slider-bar accent-gray-400" data-link="baseContrast" min="0" max="200" value="100"><input type="number" class="state-val sync-number entry-base number-entry" data-link="baseContrast" value="100"></div></div>
+                                        <div><div class="flex items-center gap-2"><label class="text-[10px] text-gray-400 uppercase font-black w-10 shrink-0">Bright.</label><input type="range" class="state-val sync-slider slider-bar accent-gray-400" data-link="baseBrightness" min="0" max="200" value="100"><input type="number" class="state-val sync-number entry-base number-entry" data-link="baseBrightness" value="100"></div></div>
                                     </div>
                                     <div class="flex gap-3 pt-1 border-t border-gray-800/50">
                                         <label class="cursor-pointer flex-1"><input type="checkbox" id="baseFlipH" class="state-val hidden peer"><div class="w-full text-center py-2.5 rounded-xl border border-gray-700 bg-gray-800 text-[10px] font-black text-gray-500 peer-checked:bg-blue-600 peer-checked:text-white transition-all uppercase tracking-widest shadow-lg">Flip Horizontal</div></label>
@@ -218,7 +212,7 @@
                                     <div class="w-[3.5rem] shrink-0"></div>
                                 </div>
                                 <div id="insetBorderControls" class="flex flex-col md:flex-row md:items-center gap-3 pt-1 opacity-40 pointer-events-none transition-opacity">
-                                    <label class="w-[85px] text-[10px] text-gray-400 uppercase tracking-widest font-black shrink-0">Border</label>
+                                    <label class="w-full md:w-[85px] text-[10px] text-gray-400 uppercase tracking-widest font-black shrink-0">Border</label>
                                     <div class="flex items-center gap-2 flex-grow">
                                         <input type="range" class="state-val sync-slider slider-bar slider-border" data-link="insetBorderW" min="0" max="40" value="8">
                                         <input type="number" class="state-val sync-number entry-base number-entry" data-link="insetBorderW" value="8">
@@ -241,24 +235,24 @@
                                         </div>
                                     </div>
                                     <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                                        <div><label class="text-[10px] text-gray-400 uppercase font-black block mb-1">Pos X</label><div class="flex items-center gap-2"><span class="text-xs text-gray-500 w-4 cursor-pointer reset-label" title="Reset" data-default="1420">X</span><input type="range" class="state-val sync-slider slider-bar slider-pan" data-link="insetPosX" min="0" max="1920" value="1420"><input type="number" class="state-val sync-number entry-base number-entry h-[2.3rem]" data-link="insetPosX" value="1420"></div></div>
-                                        <div><label class="text-[10px] text-gray-400 uppercase font-black block mb-1">Pos Y</label><div class="flex items-center gap-2"><div class="w-4 shrink-0"></div><span class="text-xs text-gray-500 w-4 cursor-pointer reset-label" title="Reset" data-default="780">Y</span><input type="range" class="state-val sync-slider slider-bar slider-pan" data-link="insetPosY" min="0" max="1080" value="780"><input type="number" class="state-val sync-number entry-base number-entry h-[2.3rem]" data-link="insetPosY" value="780"></div></div>
+                                        <div><div class="flex items-center gap-2"><label class="text-[10px] text-gray-400 uppercase font-black w-10 shrink-0">Pos X</label><input type="range" class="state-val sync-slider slider-bar slider-pan" data-link="insetPosX" min="0" max="1920" value="1420"><input type="number" class="state-val sync-number entry-base number-entry h-[2.3rem]" data-link="insetPosX" value="1420"></div></div>
+                                        <div><div class="flex items-center gap-2"><label class="text-[10px] text-gray-400 uppercase font-black w-10 shrink-0">Pos Y</label><input type="range" class="state-val sync-slider slider-bar slider-pan" data-link="insetPosY" min="0" max="1080" value="780"><input type="number" class="state-val sync-number entry-base number-entry h-[2.3rem]" data-link="insetPosY" value="780"></div></div>
                                     </div>
                                     <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                                        <div><label class="text-[10px] text-gray-400 uppercase font-black block mb-1">Pan X</label><div class="flex items-center gap-2"><span class="text-xs text-gray-500 w-4 cursor-pointer reset-label" title="Reset" data-default="0">X</span><input type="range" class="state-val sync-slider slider-bar slider-pan" data-link="insetPanX" min="-1000" max="1000" value="0"><input type="number" class="state-val sync-number entry-base number-entry h-[2.3rem]" data-link="insetPanX" value="0"></div></div>
-                                        <div><label class="text-[10px] text-gray-400 uppercase font-black block mb-1">Pan Y</label><div class="flex items-center gap-2"><div class="w-4 shrink-0"></div><span class="text-xs text-gray-500 w-4 cursor-pointer reset-label" title="Reset" data-default="0">Y</span><input type="range" class="state-val sync-slider slider-bar slider-pan" data-link="insetPanY" min="-1000" max="1000" value="0"><input type="number" class="state-val sync-number entry-base number-entry h-[2.3rem]" data-link="insetPanY" value="0"></div></div>
+                                        <div><div class="flex items-center gap-2"><label class="text-[10px] text-gray-400 uppercase font-black w-10 shrink-0">Pan X</label><input type="range" class="state-val sync-slider slider-bar slider-pan" data-link="insetPanX" min="-1000" max="1000" value="0"><input type="number" class="state-val sync-number entry-base number-entry h-[2.3rem]" data-link="insetPanX" value="0"></div></div>
+                                        <div><div class="flex items-center gap-2"><label class="text-[10px] text-gray-400 uppercase font-black w-10 shrink-0">Pan Y</label><input type="range" class="state-val sync-slider slider-bar slider-pan" data-link="insetPanY" min="-1000" max="1000" value="0"><input type="number" class="state-val sync-number entry-base number-entry h-[2.3rem]" data-link="insetPanY" value="0"></div></div>
                                     </div>
                                     <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                                        <div><label class="text-[10px] text-gray-400 uppercase font-black block mb-1">Width</label><div class="flex items-center gap-2"><span class="text-xs text-gray-500 w-4 cursor-pointer reset-label" title="Reset" data-default="400">W</span><input type="range" class="state-val sync-slider slider-bar slider-size" data-link="insetW" min="100" max="1000" value="400"><input type="number" class="state-val sync-number entry-base number-entry h-[2.3rem]" data-link="insetW" value="400"></div></div>
-                                        <div><label class="text-[10px] text-gray-400 uppercase font-black block mb-1">Height</label><div class="flex items-center gap-2"><button id="linkInsetBtn" class="text-gray-600 hover:text-blue-400 transition-colors shrink-0 w-4 h-4 flex items-center justify-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.586 4.586a2 2 0 112.828 2.828l-3 3a2 2 0 01-2.828 0 1 1 0 00-1.414 1.414 4 4 0 005.656 0l3-3a4 4 0 00-5.656-5.656l-1.5 1.5a1 1 0 101.414 1.414l1.5-1.5zm-5 5a2 2 0 012.828 0 1 1 0 101.414-1.414 4 4 0 00-5.656 0l-3 3a4 4 0 105.656 5.656l1.5-1.5a1 1 0 10-1.414-1.414l-1.5 1.5a2 2 0 11-2.828-2.828l3-3z" clip-rule="evenodd" /></svg></button><input type="checkbox" id="linkInsetRatio" class="state-val hidden" checked><span class="text-xs text-gray-500 w-4 cursor-pointer reset-label" title="Reset" data-default="400">H</span><input type="range" class="state-val sync-slider slider-bar slider-size" data-link="insetH" min="100" max="1000" value="400"><input type="number" class="state-val sync-number entry-base number-entry h-[2.3rem]" data-link="insetH" value="400"></div></div>
+                                        <div><div class="flex items-center gap-2"><label class="text-[10px] text-gray-400 uppercase font-black w-10 shrink-0">Width</label><input type="range" class="state-val sync-slider slider-bar slider-size" data-link="insetW" min="100" max="1000" value="400"><input type="number" class="state-val sync-number entry-base number-entry h-[2.3rem]" data-link="insetW" value="400"></div></div>
+                                        <div><div class="flex items-center gap-2"><button id="linkInsetBtn" class="text-gray-600 hover:text-blue-400 transition-colors shrink-0 w-4 h-4 flex items-center justify-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.586 4.586a2 2 0 112.828 2.828l-3 3a2 2 0 01-2.828 0 1 1 0 00-1.414 1.414 4 4 0 005.656 0l3-3a4 4 0 00-5.656-5.656l-1.5 1.5a1 1 0 101.414 1.414l1.5-1.5zm-5 5a2 2 0 012.828 0 1 1 0 101.414-1.414 4 4 0 00-5.656 0l-3 3a4 4 0 105.656 5.656l1.5-1.5a1 1 0 10-1.414-1.414l-1.5 1.5a2 2 0 11-2.828-2.828l3-3z" clip-rule="evenodd" /></svg></button><input type="checkbox" id="linkInsetRatio" class="state-val hidden" checked><label class="text-[10px] text-gray-400 uppercase font-black w-10 shrink-0">Height</label><input type="range" class="state-val sync-slider slider-bar slider-size" data-link="insetH" min="100" max="1000" value="400"><input type="number" class="state-val sync-number entry-base number-entry h-[2.3rem]" data-link="insetH" value="400"></div></div>
                                     </div>
                                     <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                                        <div><label class="text-[10px] text-gray-400 uppercase font-black block mb-1">Zoom</label><div class="flex items-center gap-2"><input type="range" class="state-val sync-slider slider-bar slider-size" data-link="insetScale" min="0.5" max="3" step="0.01" value="1"><input type="number" class="state-val sync-number entry-base number-entry" data-link="insetScale" value="1"></div></div>
-                                        <div><label class="text-[10px] text-gray-400 uppercase font-black block mb-1">Rotate</label><div class="flex items-center gap-2"><input type="range" class="state-val sync-slider slider-bar slider-rotate" data-link="insetRot" min="-180" max="180" value="0"><input type="number" class="state-val sync-number entry-base number-entry" data-link="insetRot" value="0"></div></div>
+                                        <div><div class="flex items-center gap-2"><label class="text-[10px] text-gray-400 uppercase font-black w-10 shrink-0">Zoom</label><input type="range" class="state-val sync-slider slider-bar slider-size" data-link="insetScale" min="0.5" max="3" step="0.01" value="1"><input type="number" class="state-val sync-number entry-base number-entry" data-link="insetScale" value="1"></div></div>
+                                        <div><div class="flex items-center gap-2"><label class="text-[10px] text-gray-400 uppercase font-black w-10 shrink-0">Rotate</label><input type="range" class="state-val sync-slider slider-bar slider-rotate" data-link="insetRot" min="-180" max="180" value="0"><input type="number" class="state-val sync-number entry-base number-entry" data-link="insetRot" value="0"></div></div>
                                     </div>
                                     <div class="grid grid-cols-1 md:grid-cols-2 gap-3 pt-1 border-t border-gray-800/50">
-                                        <div><label class="text-[10px] text-gray-400 uppercase font-black block mb-1">Contrast</label><div class="flex items-center gap-2"><input type="range" class="state-val sync-slider slider-bar accent-gray-400" data-link="insetContrast" min="0" max="200" value="100"><input type="number" class="state-val sync-number entry-base number-entry" data-link="insetContrast" value="100"></div></div>
-                                        <div><label class="text-[10px] text-gray-400 uppercase font-black block mb-1">Brightness</label><div class="flex items-center gap-2"><input type="range" class="state-val sync-slider slider-bar accent-gray-400" data-link="insetBrightness" min="0" max="200" value="100"><input type="number" class="state-val sync-number entry-base number-entry" data-link="insetBrightness" value="100"></div></div>
+                                        <div><div class="flex items-center gap-2"><label class="text-[10px] text-gray-400 uppercase font-black w-10 shrink-0">Cont.</label><input type="range" class="state-val sync-slider slider-bar accent-gray-400" data-link="insetContrast" min="0" max="200" value="100"><input type="number" class="state-val sync-number entry-base number-entry" data-link="insetContrast" value="100"></div></div>
+                                        <div><div class="flex items-center gap-2"><label class="text-[10px] text-gray-400 uppercase font-black w-10 shrink-0">Bright.</label><input type="range" class="state-val sync-slider slider-bar accent-gray-400" data-link="insetBrightness" min="0" max="200" value="100"><input type="number" class="state-val sync-number entry-base number-entry" data-link="insetBrightness" value="100"></div></div>
                                     </div>
                                     <div class="flex gap-3 pt-1 border-t border-gray-800/50">
                                         <label class="cursor-pointer flex-1"><input type="checkbox" id="insetFlipH" class="state-val hidden peer"><div class="w-full text-center py-2.5 rounded-xl border border-gray-700 bg-gray-800 text-[10px] font-black text-gray-500 peer-checked:bg-emerald-600 peer-checked:text-white transition-all uppercase tracking-widest shadow-lg">Flip Horizontal</div></label>
