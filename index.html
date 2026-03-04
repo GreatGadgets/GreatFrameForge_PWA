@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GreatFrameForge (GFF)</title>
     <link rel="icon" type="image/png" href="./assets/ggadgets-logo-DHXrvmgU.png">
-  <script type="module" crossorigin src="./assets/index-CcJaZcrU.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index--qGapjLZ.css">
+  <script type="module" crossorigin src="./assets/index-DRoW236f.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-nNOZJTBq.css">
 <link rel="manifest" href="./manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="./registerSW.js"></script></head>
 <body class="min-h-screen p-4 md:p-6 bg-[#0b0d10]">
 
@@ -23,7 +23,7 @@
             </div>
             <div class="flex flex-col md:flex-row items-center gap-3 w-full md:w-auto">
                 <div class="flex items-center gap-3 w-full md:w-auto">
-                    <button id="resetBtn" class="flex-1 md:flex-none bg-red-900/40 hover:bg-red-900/60 border border-red-800 text-red-200 px-4 py-2 rounded-lg text-sm font-semibold transition-colors">Reset</button>
+                    <button id="resetBtn" class="flex-1 md:flex-none bg-red-900/40 hover:bg-red-900/60 border border-red-800 text-red-200 px-4 py-2 rounded-lg text-sm font-semibold transition-colors">Clear Canvas</button>
                     
                     <!-- Export Dropdown -->
                     <div class="flex-1 md:flex-none inline-flex">
@@ -49,7 +49,7 @@
 
         <div class="relative xl:flex xl:flex-row xl:gap-8 items-start">
             <!-- Mobile Sticky Container -->
-            <div class="w-full sticky top-0 z-[50] bg-[#0b0d10] shadow-2xl border-b border-white/5 xl:border-b-0 xl:shadow-none xl:bg-transparent xl:w-auto xl:flex-grow xl:flex xl:flex-col xl:items-center xl:justify-start xl:sticky xl:top-6 xl:order-2">
+            <div id="stickyHeader" class="w-full sticky top-0 z-[50] bg-[#0b0d10] shadow-2xl border-b-[3px] border-transparent xl:border-b-0 xl:shadow-none xl:bg-transparent xl:w-auto xl:flex-grow xl:flex xl:flex-col xl:items-center xl:justify-start xl:sticky xl:top-6 xl:order-2 transition-all duration-300">
                 <div class="py-3 xl:py-0 w-full flex justify-center">
                     <div id="canvasFrame" class="canvas-container shadow-2xl ring-1 ring-white/10 w-full shrink-0 flex items-center justify-center overflow-hidden bg-gray-900/50">
                         <canvas id="thumbnailCanvas" width="1920" height="1080" class="w-full h-auto block"></canvas>
@@ -85,16 +85,18 @@
             </div>
 
             <!-- Controls Area -->
-            <div class="w-full xl:w-[600px] mt-8 xl:mt-0 shrink-0 space-y-4 bg-gray-900 p-5 rounded-xl border border-gray-800 h-auto xl:h-[90vh] overflow-y-visible xl:overflow-y-scroll sidebar-scroll order-2 xl:order-1">
+            <div class="w-full xl:w-[600px] mt-8 xl:mt-0 shrink-0 space-y-4 bg-gray-900 p-5 rounded-xl border border-gray-800 h-auto xl:h-[90vh] overflow-y-visible xl:overflow-y-scroll sidebar-scroll order-2 xl:order-1 relative">
+                <!-- Scroll Sentinel for Sticky Border -->
+                <div id="scroll-sentinel" class="absolute top-0 left-0 w-full h-px pointer-events-none"></div>
                 
                 <!-- Preset Management Row -->
                 <div class="relative border border-gray-700/50 rounded-xl p-2.5 flex items-center gap-3 bg-gray-950/40 group/presets shadow-inner">
                     <div class="absolute -top-2 left-3 px-1.5 bg-gray-900 text-[9px] font-black text-amber-500/80 uppercase tracking-[0.2em]">Presets</div>
                     
-                    <!-- Load Preset -->
+                    <!-- Load -->
                     <div class="relative group flex-1">
                         <div class="inline-flex h-10 cursor-pointer w-full">
-                            <button id="currentPresetName" class="flex-1 bg-amber-500/10 group-hover:bg-amber-500/20 border border-amber-500/30 text-amber-200/70 px-3 py-1 rounded-l-lg text-[11px] font-bold transition-colors border-r-0 truncate uppercase tracking-wider">Load Preset</button>
+                            <button id="currentPresetName" class="flex-1 bg-amber-500/10 group-hover:bg-amber-500/20 border border-amber-500/30 text-amber-200/70 px-3 py-1 rounded-l-lg text-[11px] font-bold transition-colors border-r-0 truncate uppercase tracking-wider">Load</button>
                             <button class="bg-amber-500/10 group-hover:bg-amber-500/20 border border-amber-500/30 text-amber-200/70 px-2.5 py-1 rounded-r-lg text-sm transition-colors h-full flex items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 opacity-50 group-hover:opacity-100 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
                             </button>
@@ -237,8 +239,8 @@
                                         <div><div class="flex items-center gap-2"><label class="text-[10px] text-gray-400 uppercase font-black w-10 shrink-0">Pan Y</label><input type="range" class="state-val sync-slider slider-bar slider-pan" data-link="insetPanY" min="-1000" max="1000" value="0"><input type="number" class="state-val sync-number entry-base number-entry" data-link="insetPanY" value="0"></div></div>
                                     </div>
                                     <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                                        <div><div class="flex items-center gap-2"><label class="text-[10px] text-gray-400 uppercase font-black w-10 shrink-0">Width</label><input type="range" class="state-val sync-slider slider-bar slider-size" data-link="insetW" min="100" max="1000" value="400"><input type="number" class="state-val sync-number entry-base number-entry h-[2.3rem]" data-link="insetW" value="400"></div></div>
-                                        <div><div class="flex items-center gap-2"><button id="linkInsetBtn" class="text-gray-600 hover:text-blue-400 transition-colors shrink-0 w-4 h-4 flex items-center justify-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.586 4.586a2 2 0 112.828 2.828l-3 3a2 2 0 01-2.828 0 1 1 0 00-1.414 1.414 4 4 0 005.656 0l3-3a4 4 0 00-5.656-5.656l-1.5 1.5a1 1 0 101.414 1.414l1.5-1.5zm-5 5a2 2 0 012.828 0 1 1 0 101.414-1.414 4 4 0 00-5.656 0l-3 3a4 4 0 105.656 5.656l1.5-1.5a1 1 0 10-1.414-1.414l-1.5 1.5a2 2 0 11-2.828-2.828l3-3z" clip-rule="evenodd" /></svg></button><input type="checkbox" id="linkInsetRatio" class="state-val hidden" checked><label class="text-[10px] text-gray-400 uppercase font-black w-10 shrink-0">Height</label><input type="range" class="state-val sync-slider slider-bar slider-size" data-link="insetH" min="100" max="1000" value="400"><input type="number" class="state-val sync-number entry-base number-entry h-[2.3rem]" data-link="insetH" value="400"></div></div>
+                                        <div><div class="flex items-center gap-2"><label class="text-[10px] text-gray-400 uppercase font-black w-10 shrink-0">Size W</label><input type="range" class="state-val sync-slider slider-bar slider-size" data-link="insetW" min="100" max="1000" value="400"><input type="number" class="state-val sync-number entry-base number-entry h-[2.3rem]" data-link="insetW" value="400"></div></div>
+                                        <div><div class="flex items-center gap-2"><button id="linkInsetBtn" class="text-gray-600 hover:text-blue-400 transition-colors shrink-0 w-4 h-4 flex items-center justify-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M12.586 4.586a2 2 0 112.828 2.828l-3 3a2 2 0 01-2.828 0 1 1 0 00-1.414 1.414 4 4 0 005.656 0l3-3a4 4 0 00-5.656-5.656l-1.5 1.5a1 1 0 101.414 1.414l1.5-1.5zm-5 5a2 2 0 012.828 0 1 1 0 101.414-1.414 4 4 0 00-5.656 0l-3 3a4 4 0 105.656 5.656l1.5-1.5a1 1 0 10-1.414-1.414l-1.5 1.5a2 2 0 11-2.828-2.828l3-3z" clip-rule="evenodd" /></svg></button><input type="checkbox" id="linkInsetRatio" class="state-val hidden" checked><label class="text-[10px] text-gray-400 uppercase font-black w-10 shrink-0">Size H</label><input type="range" class="state-val sync-slider slider-bar slider-size" data-link="insetH" min="100" max="1000" value="400"><input type="number" class="state-val sync-number entry-base number-entry h-[2.3rem]" data-link="insetH" value="400"></div></div>
                                     </div>
                                     <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
                                         <div><div class="flex items-center gap-2"><label class="text-[10px] text-gray-400 uppercase font-black w-10 shrink-0">Zoom</label><input type="range" class="state-val sync-slider slider-bar slider-size" data-link="insetScale" min="0.5" max="3" step="0.01" value="1"><input type="number" class="state-val sync-number entry-base number-entry" data-link="insetScale" value="1"></div></div>
@@ -247,6 +249,9 @@
                                     <div class="grid grid-cols-1 md:grid-cols-2 gap-3 pt-1 border-t border-gray-800/50">
                                         <div><div class="flex items-center gap-2"><label class="text-[10px] text-gray-400 uppercase font-black w-10 shrink-0">Cont.</label><input type="range" class="state-val sync-slider slider-bar accent-gray-400" data-link="insetContrast" min="0" max="200" value="100"><input type="number" class="state-val sync-number entry-base number-entry" data-link="insetContrast" value="100"></div></div>
                                         <div><div class="flex items-center gap-2"><label class="text-[10px] text-gray-400 uppercase font-black w-10 shrink-0">Bright.</label><input type="range" class="state-val sync-slider slider-bar accent-gray-400" data-link="insetBrightness" min="0" max="200" value="100"><input type="number" class="state-val sync-number entry-base number-entry" data-link="insetBrightness" value="100"></div></div>
+                                    </div>
+                                    <div class="pt-1 border-t border-gray-800/50">
+                                        <div class="flex items-center gap-2"><label class="text-[10px] text-gray-400 uppercase font-black w-10 shrink-0">Shadow</label><input type="range" class="state-val sync-slider slider-bar accent-gray-500" data-link="insetShadowBlur" min="0" max="100" value="0"><input type="number" class="state-val sync-number entry-base number-entry" data-link="insetShadowBlur" value="0"><input type="text" id="insetShadowColor" value="#000000" style="background-color: #000000" class="state-val color-picker shrink-0" inputmode="none" readonly></div>
                                     </div>
                                     <div class="flex gap-3 pt-1 border-t border-gray-800/50">
                                         <label class="cursor-pointer flex-1"><input type="checkbox" id="insetFlipH" class="state-val hidden peer"><div class="w-full text-center py-2.5 rounded-xl border border-gray-700 bg-gray-800 text-[10px] font-black text-gray-500 peer-checked:bg-emerald-600 peer-checked:text-white transition-all uppercase tracking-widest shadow-lg">Flip Horizontal</div></label>
@@ -372,9 +377,11 @@
                                 </div>
                             </div>
                         </details>
+                    </div>
+                </details>
 
-                        <!-- 2. Text Forge -->
-                        <details class="bg-gray-800 rounded-lg border border-gray-700 open:ring-1 open:ring-gray-600 relative" open>
+                <!-- 2. Text Forge -->
+                <details class="bg-gray-800 rounded-lg border border-gray-700 open:ring-1 open:ring-gray-600 relative" open>
                             <button id="toggleTextForgeVisibility" class="absolute right-12 top-4 p-1 hover:text-white transition-colors z-20" title="Toggle Visibility">
                                 <svg id="textForgeEyeIcon" class="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -432,6 +439,10 @@
             <span class="text-[12px] text-orange-500/80 group-hover/creator:text-orange-500 font-black italic tracking-wider transition-colors underline decoration-orange-500/20 underline-offset-4">Y0kenB</span>
         </div>
     </div>
+
+    <!-- Hidden state trackers for images -->
+    <input type="hidden" id="baseImgSrc" class="state-val" value="">
+    <input type="hidden" id="insetImgSrc" class="state-val" value="">
 
 </body>
 </html>
