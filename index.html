@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GreatFrameForge (GFF)</title>
     <link rel="icon" type="image/png" href="./assets/ggadgets-logo-DHXrvmgU.png">
-  <script type="module" crossorigin src="./assets/index-CpKt6VWI.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-rSreKYVv.css">
+  <script type="module" crossorigin src="./assets/index-CZVW3bTF.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-zXvHKKSY.css">
 <link rel="manifest" href="./manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="./registerSW.js"></script></head>
 <body class="min-h-screen p-4 md:p-6 bg-[#0b0d10]">
 
@@ -28,11 +28,11 @@
                     <!-- Export Dropdown -->
                     <div class="flex-1 md:flex-none inline-flex">
                         <button id="downloadBtn" class="flex-1 bg-emerald-600 hover:bg-emerald-500 text-white px-4 md:px-6 py-2 rounded-l-lg font-bold transition-colors shadow-lg shadow-emerald-600/20 border-r-0 whitespace-nowrap">Export 1440p</button>
-                        <div class="relative group">
-                            <button class="bg-emerald-600 hover:bg-emerald-500 border-l border-emerald-400/30 text-white px-2 py-2 rounded-r-lg transition-colors shadow-lg shadow-emerald-600/20 h-full flex items-center">
+                        <div class="relative group dropdown-container">
+                            <button class="bg-emerald-600 hover:bg-emerald-500 border-l border-emerald-400/30 text-white px-2 py-2 rounded-r-lg transition-colors shadow-lg shadow-emerald-600/20 h-full flex items-center dropdown-toggle">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
                             </button>
-                            <div class="absolute hidden group-hover:block top-full right-0 min-w-[160px] pt-0 z-[100]">
+                            <div class="absolute hidden group-hover:block group-[.open]:block top-full right-0 min-w-[160px] pt-0 z-[100] dropdown-menu">
                                 <div class="bg-gray-900 border border-gray-700 rounded-lg shadow-2xl py-2 mt-0">
                                     <div class="px-4 py-1 text-[10px] font-black text-gray-500 uppercase tracking-widest border-b border-gray-800 mb-1">Select Resolution</div>
                                     <div class="px-4 py-2 text-sm text-gray-300 hover:bg-emerald-600 hover:text-white cursor-pointer transition-colors res-option" onclick="setExportRes(1080)">1080p (Standard)</div>
@@ -50,34 +50,34 @@
         <div class="relative xl:flex xl:flex-row xl:gap-8 items-start">
             <!-- Mobile Sticky Container -->
             <div id="stickyHeader" class="w-full sticky top-0 z-[50] bg-[#0b0d10] shadow-2xl border-b-[3px] border-transparent xl:border-b-0 xl:shadow-none xl:bg-transparent xl:w-auto xl:flex-grow xl:flex xl:flex-col xl:items-center xl:justify-start xl:sticky xl:top-6 xl:order-2 transition-all duration-300">
-                <div class="py-3 xl:py-0 w-full flex justify-center">
+                <div class="py-2 xl:py-0 w-full flex justify-center">
                     <div id="canvasFrame" class="canvas-container shadow-2xl ring-1 ring-white/10 w-full shrink-0 flex items-center justify-center overflow-hidden bg-gray-900/50">
                         <canvas id="thumbnailCanvas" width="1920" height="1080" class="w-full h-auto block"></canvas>
                     </div>
                 </div>
                 
                 <div class="w-full flex-grow flex flex-col overflow-hidden bg-[#0b0d10] xl:bg-transparent relative z-[40]">
-                    <!-- Controls Rows -->
-                    <div class="flex flex-col gap-3 mt-4 md:mt-6 w-full px-2 pb-2">
-                        <!-- Row 1: Scale Buttons -->
-                        <div class="flex items-center justify-center gap-1.5 w-full">
-                            <button onclick="setPreviewScale('full')" class="preview-scale-btn active flex-1 h-[2.3rem] bg-gray-800 border border-blue-500 text-white rounded-lg text-[10px] font-black uppercase tracking-widest transition-all">Full</button>
-                            <button onclick="setPreviewScale('large')" class="preview-scale-btn flex-1 h-[2.3rem] bg-gray-800 border border-gray-700 text-gray-400 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all">L</button>
-                            <button onclick="setPreviewScale('medium')" class="preview-scale-btn flex-1 h-[2.3rem] bg-gray-800 border border-gray-700 text-gray-400 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all">M</button>
-                            <button onclick="setPreviewScale('small')" class="preview-scale-btn flex-1 h-[2.3rem] bg-gray-800 border border-gray-700 text-gray-400 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all">S</button>
+                    <!-- Controls Row -->
+                    <div class="flex flex-row items-center justify-center gap-1.5 mt-2 md:mt-6 w-full px-2 pb-1">
+                        <!-- Colour Guide -->
+                        <button id="toggleColorWheelBtn" class="flex-1 h-[2.3rem] bg-emerald-500/20 hover:bg-emerald-500/30 border border-emerald-500/40 text-emerald-400 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all flex items-center justify-center gap-1.5 whitespace-nowrap min-w-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" /></svg>
+                            <span class="truncate">Guide</span>
+                        </button>
+
+                        <!-- Scale Buttons (Smaller) -->
+                        <div class="flex items-center gap-1 shrink-0">
+                            <button onclick="setPreviewScale('full')" class="preview-scale-btn active w-9 h-[2.3rem] bg-gray-800 border border-blue-500 text-white rounded-lg text-[10px] font-black uppercase transition-all">F</button>
+                            <button onclick="setPreviewScale('large')" class="preview-scale-btn w-9 h-[2.3rem] bg-gray-800 border border-gray-700 text-gray-400 rounded-lg text-[10px] font-black uppercase transition-all">L</button>
+                            <button onclick="setPreviewScale('medium')" class="preview-scale-btn w-9 h-[2.3rem] bg-gray-800 border border-gray-700 text-gray-400 rounded-lg text-[10px] font-black uppercase transition-all">M</button>
+                            <button onclick="setPreviewScale('small')" class="preview-scale-btn w-9 h-[2.3rem] bg-gray-800 border border-gray-700 text-gray-400 rounded-lg text-[10px] font-black uppercase transition-all">S</button>
                         </div>
 
-                        <!-- Row 2: Guide & Safe Zones -->
-                        <div class="flex items-center justify-between gap-3 w-full">
-                            <button id="toggleColorWheelBtn" class="flex-1 h-[2.3rem] px-3 bg-emerald-500/20 hover:bg-emerald-500/30 border border-emerald-500/40 text-emerald-400 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all flex items-center justify-center gap-2 whitespace-nowrap">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" /></svg>
-                                <span>Colour Guide</span>
-                            </button>
-                            <button id="toggleYTGuidesBtn" class="flex-1 h-[2.3rem] px-3 bg-emerald-500/20 hover:bg-emerald-500/30 border border-emerald-500/40 text-emerald-400 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all flex items-center justify-center gap-2 whitespace-nowrap">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
-                                <span>YT Safe Zones</span>
-                            </button>
-                        </div>
+                        <!-- YT Safe Zones -->
+                        <button id="toggleYTGuidesBtn" class="flex-1 h-[2.3rem] bg-emerald-500/20 hover:bg-emerald-500/30 border border-emerald-500/40 text-emerald-400 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all flex items-center justify-center gap-1.5 whitespace-nowrap min-w-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
+                            <span class="truncate">Zones</span>
+                        </button>
                     </div>
 
                     <div id="colour-wheel-host" class="flex-grow flex flex-col min-h-0"></div>
@@ -94,14 +94,14 @@
                     <div class="absolute -top-2 left-3 px-1.5 bg-gray-900 text-[9px] font-black text-amber-500/80 uppercase tracking-[0.2em]">Presets</div>
                     
                     <!-- Load -->
-                    <div class="relative group flex-1">
-                        <div class="inline-flex h-10 cursor-pointer w-full">
+                    <div class="relative group flex-1 dropdown-container">
+                        <div class="inline-flex h-10 cursor-pointer w-full dropdown-toggle">
                             <button id="currentPresetName" class="flex-1 bg-amber-500/10 group-hover:bg-amber-500/20 border border-amber-500/30 text-amber-200/70 px-3 py-1 rounded-l-lg text-[11px] font-bold transition-colors border-r-0 truncate uppercase tracking-wider">Load</button>
                             <button class="bg-amber-500/10 group-hover:bg-amber-500/20 border border-amber-500/30 text-amber-200/70 px-2.5 py-1 rounded-r-lg text-sm transition-colors h-full flex items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 opacity-50 group-hover:opacity-100 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
                             </button>
                         </div>
-                        <div class="absolute hidden group-hover:block top-full left-0 w-full pt-1 z-[110]">
+                        <div class="absolute hidden group-hover:block group-[.open]:block top-full left-0 w-full pt-1 z-[110] dropdown-menu">
                             <div class="bg-gray-900 border border-gray-700 rounded-lg shadow-2xl py-2 overflow-hidden">
                                 <div id="presetDropdownList" class="max-h-[300px] overflow-y-auto overflow-x-hidden sidebar-scroll p-1"></div>
                                 <div class="border-t border-gray-800 mt-2 pt-2 px-2 flex gap-2">
@@ -114,14 +114,14 @@
                     </div>
                     
                     <!-- Save Button -->
-                    <div class="relative group flex-1">
+                    <div class="relative group flex-1 dropdown-container">
                         <div class="inline-flex h-10 w-full">
                             <button id="savePresetBtn" class="flex-1 bg-amber-500/10 group-hover:bg-amber-500/20 border border-amber-500/30 text-amber-200/70 px-3 py-1 rounded-l-lg text-[11px] font-bold transition-colors border-r-0 uppercase tracking-wider">Save</button>
-                            <button class="bg-amber-500/10 group-hover:bg-amber-500/20 border border-amber-500/30 text-amber-200/70 px-2.5 py-1 rounded-r-lg transition-colors h-full flex items-center">
+                            <button class="bg-amber-500/10 group-hover:bg-amber-500/20 border border-amber-500/30 text-amber-200/70 px-2.5 py-1 rounded-r-lg transition-colors h-full flex items-center dropdown-toggle">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
                             </button>
                         </div>
-                        <div class="absolute hidden group-hover:block top-full right-0 w-full pt-1 z-[110]">
+                        <div class="absolute hidden group-hover:block group-[.open]:block top-full right-0 w-full pt-1 z-[110] dropdown-menu">
                             <div class="bg-gray-900 border border-gray-700 rounded-lg shadow-2xl py-2 overflow-hidden">
                                 <div class="px-4 py-1 text-[10px] font-black text-gray-500 uppercase tracking-widest border-b border-gray-800 mb-1">Overwrite Existing</div>
                                 <div id="saveDropdownList" class="max-h-[300px] overflow-y-auto overflow-x-hidden sidebar-scroll p-1"></div>
