@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GreatFrameForge (GFF)</title>
     <link rel="icon" type="image/png" href="./assets/ggadgets-logo-DHXrvmgU.png">
-  <script type="module" crossorigin src="./assets/index-CUI9f4n3.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-Bzv_2WH-.css">
+  <script type="module" crossorigin src="./assets/index-DY8899wW.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-0vkh0YSW.css">
 <link rel="manifest" href="./manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="./registerSW.js"></script></head>
 <body class="min-h-screen p-4 md:p-6 bg-[#0b0d10]">
 
-    <div class="max-w-[1920px] mx-auto pb-2">
-        <header class="mb-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+    <div class="max-w-[1920px] mx-auto pb-2 flex flex-col h-screen max-h-[1380px]">
+        <header class="mb-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 shrink-0">
             <div class="flex items-center gap-4">
                 <img src="./assets/ggadgets-logo-DHXrvmgU.png" alt="GFF Logo" class="w-12 h-12 md:w-16 md:h-16 drop-shadow-[0_0_15px_rgba(212,175,55,0.3)]">
                 <div>
@@ -23,13 +23,13 @@
             </div>
             <div class="flex flex-col md:flex-row items-center gap-3 w-full md:w-auto">
                 <div class="flex items-center gap-3 w-full md:w-auto">
-                    <button id="resetBtn" class="flex-1 md:flex-none bg-red-900/40 hover:bg-red-900/60 border border-red-800 text-red-200 px-4 py-2 rounded-lg text-sm font-semibold transition-colors">Clear Canvas</button>
+                    <button id="resetBtn" class="flex-1 md:flex-none bg-red-900/40 hover:bg-red-900/60 border border-red-800 text-red-200 px-4 py-2 rounded-lg text-sm font-semibold transition-colors uppercase tracking-wider">Clear Canvas</button>
                     
                     <!-- Export Dropdown -->
-                    <div class="flex-1 md:flex-none inline-flex">
-                        <button id="downloadBtn" class="flex-1 bg-emerald-600 hover:bg-emerald-500 text-white px-4 md:px-6 py-2 rounded-l-lg font-bold transition-colors shadow-lg shadow-emerald-600/20 border-r-0 whitespace-nowrap">Export 1440p</button>
+                    <div class="flex-1 md:flex-none inline-flex h-9">
+                        <button id="downloadBtn" class="flex-1 bg-emerald-600 hover:bg-emerald-500 text-white px-4 md:px-6 py-1 rounded-l-lg text-sm font-bold transition-colors shadow-lg shadow-emerald-600/20 border-r-0 whitespace-nowrap">Export 1440p</button>
                         <div class="relative group dropdown-container">
-                            <button class="bg-emerald-600 hover:bg-emerald-500 border-l border-emerald-400/30 text-white px-2 py-2 rounded-r-lg transition-colors shadow-lg shadow-emerald-600/20 h-full flex items-center dropdown-toggle">
+                            <button class="bg-emerald-600 hover:bg-emerald-500 border-l border-emerald-400/30 text-white px-2 py-1 rounded-r-lg transition-colors shadow-lg shadow-emerald-600/20 h-full flex items-center dropdown-toggle">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
                             </button>
                             <div class="absolute hidden group-hover:block group-[.open]:block top-full right-0 min-w-[160px] pt-0 z-[100] dropdown-menu">
@@ -47,52 +47,17 @@
             </div>
         </header>
 
-        <div class="relative xl:flex xl:flex-row xl:gap-8 items-start">
-            <!-- Mobile Sticky Container -->
-            <div id="stickyHeader" class="w-full sticky top-0 z-[50] bg-[#0b0d10] shadow-2xl border-b-[3px] border-transparent xl:border-b-0 xl:shadow-none xl:bg-transparent xl:w-auto xl:flex-grow xl:flex xl:flex-col xl:items-center xl:justify-start xl:sticky xl:top-6 xl:order-2 transition-all duration-300">
-                <div class="py-2 xl:py-0 w-full flex justify-center">
-                    <div id="canvasFrame" class="canvas-container shadow-2xl ring-1 ring-white/10 w-full shrink-0 flex items-center justify-center overflow-hidden bg-gray-900/50">
-                        <canvas id="thumbnailCanvas" width="1920" height="1080" class="w-full h-auto block"></canvas>
-                    </div>
-                </div>
-                
-                <div class="w-full flex-grow flex flex-col overflow-hidden bg-[#0b0d10] xl:bg-transparent relative z-[40]">
-                    <!-- Controls Row -->
-                    <div class="flex flex-row items-center justify-center gap-1.5 mt-2 md:mt-6 w-full px-2 pb-1">
-                        <!-- Colour Guide -->
-                        <button id="toggleColorWheelBtn" class="flex-1 h-[2.3rem] bg-emerald-500/20 hover:bg-emerald-500/30 border border-emerald-500/40 text-emerald-400 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all flex items-center justify-center gap-1.5 whitespace-nowrap min-w-0">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" /></svg>
-                            <span class="truncate">Guide</span>
-                        </button>
-
-                        <!-- Scale Buttons (Smaller) -->
-                        <div class="flex items-center gap-1 shrink-0">
-                            <button onclick="setPreviewScale('full')" class="preview-scale-btn active w-9 h-[2.3rem] bg-gray-800 border border-blue-500 text-white rounded-lg text-[10px] font-black uppercase transition-all">F</button>
-                            <button onclick="setPreviewScale('large')" class="preview-scale-btn w-9 h-[2.3rem] bg-gray-800 border border-gray-700 text-gray-400 rounded-lg text-[10px] font-black uppercase transition-all">L</button>
-                            <button onclick="setPreviewScale('medium')" class="preview-scale-btn w-9 h-[2.3rem] bg-gray-800 border border-gray-700 text-gray-400 rounded-lg text-[10px] font-black uppercase transition-all">M</button>
-                            <button onclick="setPreviewScale('small')" class="preview-scale-btn w-9 h-[2.3rem] bg-gray-800 border border-gray-700 text-gray-400 rounded-lg text-[10px] font-black uppercase transition-all">S</button>
-                        </div>
-
-                        <!-- YT Safe Zones -->
-                        <button id="toggleYTGuidesBtn" class="flex-1 h-[2.3rem] bg-emerald-500/20 hover:bg-emerald-500/30 border border-emerald-500/40 text-emerald-400 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all flex items-center justify-center gap-1.5 whitespace-nowrap min-w-0">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
-                            <span class="truncate">Zones</span>
-                        </button>
-                    </div>
-
-                    <div id="colour-wheel-host" class="flex-grow flex flex-col min-h-0"></div>
-                </div>
-            </div>
-
-            <!-- Controls Area -->
-            <div id="controlsArea" class="w-full xl:w-[600px] mt-4 xl:mt-0 shrink-0 space-y-4 bg-gray-900 p-5 rounded-xl border border-gray-800 h-auto xl:h-[90vh] overflow-y-visible xl:overflow-y-scroll sidebar-scroll order-2 xl:order-1 relative transition-all duration-300">
+        <div class="flex-grow flex flex-col xl:flex-row xl:gap-8 items-stretch min-h-0 overflow-hidden">
+            
+            <!-- Side Panel (Left on Desktop, Bottom on Mobile) -->
+            <div id="controlsArea" class="w-full xl:w-[600px] shrink-0 flex flex-col space-y-4 bg-gray-900 p-5 rounded-xl border border-gray-800 overflow-y-auto sidebar-scroll order-2 xl:order-1 relative transition-all duration-300 min-h-0">
                 <!-- Scroll Sentinel for Sticky Border -->
                 <div id="scroll-sentinel" class="absolute top-0 left-0 w-full h-px pointer-events-none"></div>
-                
+
                 <!-- Preset Management Row -->
-                <div class="relative border border-gray-700/50 rounded-xl p-2.5 flex items-center gap-3 bg-gray-950/40 group/presets shadow-inner">
+                <div class="relative border border-gray-700/50 rounded-xl p-2.5 flex items-center gap-3 bg-gray-950/40 group/presets shadow-inner shrink-0">
                     <div class="absolute -top-2 left-3 px-1.5 bg-gray-900 text-[9px] font-black text-amber-500/80 uppercase tracking-[0.2em]">Presets</div>
-                    
+
                     <!-- Load -->
                     <div class="relative group flex-1 dropdown-container">
                         <div class="inline-flex h-10 cursor-pointer w-full dropdown-toggle">
@@ -112,7 +77,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- Save Button -->
                     <div class="relative group flex-1 dropdown-container">
                         <div class="inline-flex h-10 w-full">
@@ -131,16 +96,19 @@
                 </div>
 
                 <!-- 1. Base Image -->
-                <details id="mainBaseDetails" class="bg-gray-800 rounded-lg border border-gray-700 open:ring-1 open:ring-gray-600" open>
+                <details id="mainBaseDetails" class="bg-gray-800 rounded-lg border border-gray-700 open:ring-1 open:ring-gray-600 shrink-0" open>
                     <summary class="p-4 font-bold text-white cursor-pointer hover:bg-gray-700/50 flex justify-between items-center rounded-lg select-none">
                         <span>1. Base Image</span>
                         <svg class="w-5 h-5 text-gray-400 transform transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
                     </summary>
                     <div class="p-3 pt-0 border-t border-gray-700 mt-2 space-y-3">
-                        
+
                         <!-- Base Image Block -->
-                        <div class="bg-gray-900 rounded-lg border border-gray-700 overflow-hidden">
+                        <div class="bg-gray-900 rounded-lg border border-gray-700 overflow-hidden layer-card">
                             <div class="p-4 bg-gray-950/20 border-b border-gray-800/50 space-y-3">
+                                <div class="flex items-center justify-between mb-1">
+                                    <span class="text-[10px] font-bold text-gray-500 uppercase tracking-widest">Base Image Layer</span>
+                                </div>
                                 <div class="flex items-center gap-2 w-full h-[2.3rem]">
                                    <button id="clearBaseBtn" class="w-8 h-full flex justify-center items-center text-gray-500 hover:text-red-400 transition-all shrink-0" title="Delete Base Layer (Complete Reset)">
                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4.5 w-4.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg>
@@ -151,16 +119,17 @@
                                        <input type="file" id="baseImageUpload" accept="image/*" class="hidden">
                                    </label>
                                    <div id="baseClearXPlaceholder" class="w-[3.5rem] shrink-0 h-full flex justify-center items-center">
-                                       <button id="clearBaseImageX" class="hidden text-gray-500 hover:text-amber-400 transition-all w-full flex justify-center items-center h-full border border-gray-700 bg-gray-800 rounded-lg" title="Remove Image (Keep Layer)">
+                                       <button id="clearBaseImageX" class="text-gray-500 hover:text-amber-400 transition-all w-full flex justify-center items-center h-full border border-gray-700 bg-gray-800 rounded-lg opacity-20 pointer-events-none" title="Remove Image (Keep Layer)">
                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4.5 w-4.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
                                        </button>
                                    </div>
                                    <input type="text" id="bgColor" value="transparent" style="background-color: #111827" class="state-val color-picker shrink-0" title="Choose BG Colour" inputmode="none" readonly>
-                                </div>                                <div id="baseBorderControls" class="flex items-center gap-3 pt-1 opacity-40 pointer-events-none transition-opacity">
+                                </div>
+                                <div id="baseBorderControls" class="flex items-center gap-3 pt-1 transition-opacity">
                                     <div class="flex items-center gap-2 flex-grow">
                                         <label class="text-[10px] text-gray-400 uppercase tracking-widest font-black shrink-0 w-8">Brd.</label>
                                         <input type="range" class="state-val sync-slider slider-bar slider-border flex-grow" data-link="baseBorderW" min="0" max="40" value="0">
-                                        <input type="number" class="state-val sync-number entry-base number-entry shrink-0" data-link="baseBorderW" value="0">
+                                        <input type="number" inputmode="none" class="state-val sync-number entry-base number-entry shrink-0" data-link="baseBorderW" value="0">
                                         <input type="text" id="baseBorderColor" value="#ffffff" style="background-color: #ffffff" class="state-val color-picker shrink-0" inputmode="none" readonly>
                                     </div>
                                 </div>
@@ -175,24 +144,24 @@
                                     </div>
 
                                     <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                                        <div><div class="flex items-center gap-2"><label class="text-[10px] text-gray-400 uppercase font-black w-10 shrink-0">Pos X</label><input type="range" class="state-val sync-slider slider-bar slider-pan" data-link="basePosX" min="-1000" max="1000" value="0"><input type="number" class="state-val sync-number entry-base number-entry h-[2.3rem]" data-link="basePosX" value="0"></div></div>
-                                        <div><div class="flex items-center gap-2"><label class="text-[10px] text-gray-400 uppercase font-black w-10 shrink-0">Pos Y</label><input type="range" class="state-val sync-slider slider-bar slider-pan" data-link="basePosY" min="-1000" max="1000" value="0"><input type="number" class="state-val sync-number entry-base number-entry h-[2.3rem]" data-link="basePosY" value="0"></div></div>
+                                        <div><div class="flex items-center gap-2"><label class="text-[10px] text-gray-400 uppercase font-black w-10 shrink-0">Pos X</label><input type="range" class="state-val sync-slider slider-bar slider-pan" data-link="basePosX" min="-1000" max="1000" value="0"><input type="number" inputmode="none" class="state-val sync-number entry-base number-entry h-[2.3rem]" data-link="basePosX" value="0"></div></div>
+                                        <div><div class="flex items-center gap-2"><label class="text-[10px] text-gray-400 uppercase font-black w-10 shrink-0">Pos Y</label><input type="range" class="state-val sync-slider slider-bar slider-pan" data-link="basePosY" min="-1000" max="1000" value="0"><input type="number" inputmode="none" class="state-val sync-number entry-base number-entry h-[2.3rem]" data-link="basePosY" value="0"></div></div>
                                     </div>
                                     <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                                        <div><div class="flex items-center gap-2"><label class="text-[10px] text-gray-400 uppercase font-black w-10 shrink-0">Pan X</label><input type="range" class="state-val sync-slider slider-bar slider-pan" data-link="baseX" min="-1000" max="1000" value="0"><input type="number" class="state-val sync-number entry-base number-entry" data-link="baseX" value="0"></div></div>
-                                        <div><div class="flex items-center gap-2"><label class="text-[10px] text-gray-400 uppercase font-black w-10 shrink-0">Pan Y</label><input type="range" class="state-val sync-slider slider-bar slider-pan" data-link="baseY" min="-1000" max="1000" value="0"><input type="number" class="state-val sync-number entry-base number-entry" data-link="baseY" value="0"></div></div>
+                                        <div><div class="flex items-center gap-2"><label class="text-[10px] text-gray-400 uppercase font-black w-10 shrink-0">Pan X</label><input type="range" class="state-val sync-slider slider-bar slider-pan" data-link="baseX" min="-1000" max="1000" value="0"><input type="number" inputmode="none" class="state-val sync-number entry-base number-entry" data-link="baseX" value="0"></div></div>
+                                        <div><div class="flex items-center gap-2"><label class="text-[10px] text-gray-400 uppercase font-black w-10 shrink-0">Pan Y</label><input type="range" class="state-val sync-slider slider-bar slider-pan" data-link="baseY" min="-1000" max="1000" value="0"><input type="number" inputmode="none" class="state-val sync-number entry-base number-entry" data-link="baseY" value="0"></div></div>
                                     </div>
                                     <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                                        <div><div class="flex items-center gap-2"><label class="text-[10px] text-gray-400 uppercase font-black w-10 shrink-0">Zoom</label><input type="range" class="state-val sync-slider slider-bar slider-size" data-link="baseScale" min="0.5" max="3" step="0.01" value="1"><input type="number" class="state-val sync-number entry-base number-entry" data-link="baseScale" value="1"></div></div>
-                                        <div><div class="flex items-center gap-2"><label class="text-[10px] text-gray-400 uppercase font-black w-10 shrink-0">Rotate</label><input type="range" class="state-val sync-slider slider-bar slider-rotate" data-link="baseRot" min="-180" max="180" value="0"><input type="number" class="state-val sync-number entry-base number-entry" data-link="baseRot" value="0"></div></div>
+                                        <div><div class="flex items-center gap-2"><label class="text-[10px] text-gray-400 uppercase font-black w-10 shrink-0">Zoom</label><input type="range" class="state-val sync-slider slider-bar slider-size" data-link="baseScale" min="0.5" max="3" step="0.01" value="1"><input type="number" inputmode="none" class="state-val sync-number entry-base number-entry" data-link="baseScale" value="1"></div></div>
+                                        <div><div class="flex items-center gap-2"><label class="text-[10px] text-gray-400 uppercase font-black w-10 shrink-0">Rotate</label><input type="range" class="state-val sync-slider slider-bar slider-rotate" data-link="baseRot" min="-180" max="180" value="0"><input type="number" inputmode="none" class="state-val sync-number entry-base number-entry" data-link="baseRot" value="0"></div></div>
                                     </div>
                                     <div class="grid grid-cols-1 md:grid-cols-2 gap-3 pt-1 border-t border-gray-800/50">
-                                        <div><div class="flex items-center gap-2"><label class="text-[10px] text-gray-400 uppercase font-black w-10 shrink-0">Cont.</label><input type="range" class="state-val sync-slider slider-bar accent-gray-400" data-link="baseContrast" min="0" max="200" value="100"><input type="number" class="state-val sync-number entry-base number-entry" data-link="baseContrast" value="100"></div></div>
-                                        <div><div class="flex items-center gap-2"><label class="text-[10px] text-gray-400 uppercase font-black w-10 shrink-0">Bright.</label><input type="range" class="state-val sync-slider slider-bar accent-gray-400" data-link="baseBrightness" min="0" max="200" value="100"><input type="number" class="state-val sync-number entry-base number-entry" data-link="baseBrightness" value="100"></div></div>
+                                        <div><div class="flex items-center gap-2"><label class="text-[10px] text-gray-400 uppercase font-black w-10 shrink-0">Cont.</label><input type="range" class="state-val sync-slider slider-bar accent-gray-400" data-link="baseContrast" min="0" max="200" value="100"><input type="number" inputmode="none" class="state-val sync-number entry-base number-entry" data-link="baseContrast" value="100"></div></div>
+                                        <div><div class="flex items-center gap-2"><label class="text-[10px] text-gray-400 uppercase font-black w-10 shrink-0">Bright.</label><input type="range" class="state-val sync-slider slider-bar accent-gray-400" data-link="baseBrightness" min="0" max="200" value="100"><input type="number" inputmode="none" class="state-val sync-number entry-base number-entry" data-link="baseBrightness" value="100"></div></div>
                                     </div>
                                     <div class="flex gap-3 pt-1 border-t border-gray-800/50">
-                                        <label class="cursor-pointer flex-1"><input type="checkbox" id="baseFlipH" class="state-val hidden peer"><div class="w-full text-center py-2.5 rounded-xl border border-gray-700 bg-gray-800 text-[10px] font-black text-gray-500 peer-checked:bg-blue-600 peer-checked:text-white transition-all uppercase tracking-widest shadow-lg">Flip Horizontal</div></label>
-                                        <label class="cursor-pointer flex-1"><input type="checkbox" id="baseFlipV" class="state-val hidden peer"><div class="w-full text-center py-2.5 rounded-xl border border-gray-700 bg-gray-800 text-[10px] font-black text-gray-500 peer-checked:bg-blue-600 peer-checked:text-white transition-all uppercase tracking-widest shadow-lg">Flip Vertical</div></label>
+                                        <label class="cursor-pointer flex-1"><input type="checkbox" id="baseFlipH" class="state-val hidden peer"><div class="w-full text-center py-2.5 rounded-xl border border-gray-700 bg-gray-800 text-[10px] font-black text-gray-500 peer-checked:bg-emerald-600 peer-checked:text-white transition-all uppercase tracking-widest shadow-lg">Flip Horizontal</div></label>
+                                        <label class="cursor-pointer flex-1"><input type="checkbox" id="baseFlipV" class="state-val hidden peer"><div class="w-full text-center py-2.5 rounded-xl border border-gray-700 bg-gray-800 text-[10px] font-black text-gray-500 peer-checked:bg-emerald-600 peer-checked:text-white transition-all uppercase tracking-widest shadow-lg">Flip Vertical</div></label>
                                     </div>
                                 </div>
                             </details>
@@ -201,7 +170,7 @@
                 </details>
 
                 <!-- 2. Inset Layers -->
-                <details id="mainInsetDetails" class="bg-gray-800 rounded-lg border border-gray-700 open:ring-1 open:ring-gray-600" open>
+                <details id="mainInsetDetails" class="bg-gray-800 rounded-lg border border-gray-700 open:ring-1 open:ring-gray-600 shrink-0" open>
                     <summary class="p-4 font-bold text-white cursor-pointer hover:bg-gray-700/50 flex justify-between items-center rounded-lg select-none">
                         <span>2. Inset Layers</span>
                         <svg class="w-5 h-5 text-gray-400 transform transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
@@ -218,7 +187,7 @@
                 </details>
 
                 <!-- 3. Overlays & Gradients -->
-                <details id="mainGradientDetails" class="bg-gray-800 rounded-lg border border-gray-700 open:ring-1 open:ring-gray-600">
+                <details id="mainGradientDetails" class="bg-gray-800 rounded-lg border border-gray-700 open:ring-1 open:ring-gray-600 shrink-0">
                     <summary class="p-4 font-bold text-white cursor-pointer hover:bg-gray-700/50 flex justify-between items-center rounded-lg select-none">
                         <span>3. Overlays & Gradients</span>
                         <svg class="w-5 h-5 text-gray-400 transform transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
@@ -230,7 +199,7 @@
                             <div class="flex flex-col gap-3 flex-grow">
                                 <div class="flex items-center gap-2">
                                     <input type="range" class="state-val sync-slider slider-bar slider-opacity" data-link="overlayOpacity" min="0" max="100" value="0">
-                                    <input type="number" class="state-val sync-number entry-base number-entry shrink-0" data-link="overlayOpacity" value="0">
+                                    <input type="number" inputmode="none" class="state-val sync-number entry-base number-entry shrink-0" data-link="overlayOpacity" value="0">
                                     <input type="text" id="overlayColor" value="#000000" style="background-color: #000000" class="state-val color-picker" inputmode="none" readonly>
                                 </div>
                             </div>
@@ -249,7 +218,7 @@
                 </details>
 
                 <!-- 4. Text Forge -->
-                <details id="mainTextDetails" class="bg-gray-800 rounded-lg border border-gray-700 open:ring-1 open:ring-gray-600 relative" open>
+                <details id="mainTextDetails" class="bg-gray-800 rounded-lg border border-gray-700 open:ring-1 open:ring-gray-600 relative shrink-0" open>
                             <button id="toggleTextForgeVisibility" class="absolute right-12 top-4 p-1 hover:text-white transition-colors z-20" title="Toggle Visibility">
                                 <svg id="textForgeEyeIcon" class="w-4 h-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -281,7 +250,7 @@
                                                 </div>
                                                 <div class="flex items-center gap-2">
                                                     <input type="range" class="state-val sync-slider slider-bar slider-pan" data-link="globalTextX" min="-1000" max="1000" value="0">
-                                                    <input type="number" class="state-val sync-number entry-base number-entry shrink-0" data-link="globalTextX" value="0">
+                                                    <input type="number" inputmode="none" class="state-val sync-number entry-base number-entry shrink-0" data-link="globalTextX" value="0">
                                                 </div>
                                             </div>
                                             <div class="flex flex-col gap-1.5">
@@ -291,7 +260,7 @@
                                                 </div>
                                                 <div class="flex items-center gap-2">
                                                     <input type="range" class="state-val sync-slider slider-bar slider-pan" data-link="globalTextY" min="-1000" max="1000" value="0">
-                                                    <input type="number" class="state-val sync-number entry-base number-entry shrink-0" data-link="globalTextY" value="0">
+                                                    <input type="number" inputmode="none" class="state-val sync-number entry-base number-entry shrink-0" data-link="globalTextY" value="0">
                                                 </div>
                                             </div>
                                         </div>
@@ -303,7 +272,7 @@
                                                 </div>
                                                 <div class="flex items-center gap-3">
                                                     <input type="range" class="state-val sync-slider slider-bar slider-size" data-link="globalTextScale" min="10" max="300" value="100">
-                                                    <input type="number" class="state-val sync-number entry-base number-entry shrink-0" data-link="globalTextScale" value="100">
+                                                    <input type="number" inputmode="none" class="state-val sync-number entry-base number-entry shrink-0" data-link="globalTextScale" value="100">
                                                 </div>
                                             </div>
                                         </div>
@@ -319,44 +288,80 @@
                                 </div>
                             </div>
                         </details>
+            </div>
+
+            <!-- Preview Column (Right on Desktop, Top on Mobile) -->
+            <div id="stickyHeader" class="flex-none xl:flex-1 flex flex-col items-center justify-start sticky top-0 order-1 xl:order-2 transition-all duration-300 min-h-0 min-w-0 z-[50]">
+
+
+                <div class="w-full max-w-full flex justify-center py-2 xl:py-0">
+                    <div id="canvasFrame" class="canvas-container shadow-2xl ring-1 ring-white/10 w-full flex items-center justify-center overflow-hidden bg-gray-900/50">
+                        <canvas id="thumbnailCanvas" width="1920" height="1080" class="w-full h-auto block"></canvas>
                     </div>
                 </div>
-            </div>
-            <div class="h-12"></div>
+                
+                <div id="controlsWrapper" class="w-full flex-none flex flex-col overflow-hidden bg-[#0b0d10] xl:bg-transparent relative z-[40] border-b border-transparent transition-all duration-300">
+                    <!-- Controls Row -->
+                    <div class="flex flex-row items-center justify-center gap-1.5 mt-2 md:mt-4 w-full px-2 pb-4 shrink-0">
+                        <!-- Colour Guide -->
+                        <button id="toggleColorWheelBtn" class="flex-1 h-[2.3rem] bg-emerald-500/20 hover:bg-emerald-500/30 border border-emerald-500/40 text-emerald-400 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all flex items-center justify-center gap-1.5 whitespace-nowrap min-w-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" /></svg>
+                            <span class="truncate">Colour Guide</span>
+                        </button>
 
+                        <!-- Scale Buttons (Smaller) -->
+                        <div class="flex items-center gap-1 shrink-0">
+                            <button onclick="setPreviewScale('full')" class="preview-scale-btn active w-9 h-[2.3rem] bg-gray-800 border border-blue-500 text-white rounded-lg text-[10px] font-black uppercase transition-all">F</button>
+                            <button onclick="setPreviewScale('large')" class="preview-scale-btn w-9 h-[2.3rem] bg-gray-800 border border-gray-700 text-gray-400 rounded-lg text-[10px] font-black uppercase transition-all">L</button>
+                            <button onclick="setPreviewScale('medium')" class="preview-scale-btn w-9 h-[2.3rem] bg-gray-800 border border-gray-700 text-gray-400 rounded-lg text-[10px] font-black uppercase transition-all">M</button>
+                            <button onclick="setPreviewScale('small')" class="preview-scale-btn w-9 h-[2.3rem] bg-gray-800 border border-gray-700 text-gray-400 rounded-lg text-[10px] font-black uppercase transition-all">S</button>
+                        </div>
+
+                        <!-- YT Safe Zones -->
+                        <button id="toggleYTGuidesBtn" class="flex-1 h-[2.3rem] bg-emerald-500/20 hover:bg-emerald-500/30 border border-emerald-500/40 text-emerald-400 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all flex items-center justify-center gap-1.5 whitespace-nowrap min-w-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
+                            <span class="truncate">YT Safe Zone</span>
+                        </button>
+                    </div>
+
+                    <div id="colour-wheel-host" class="hidden flex-none flex flex-col min-h-0"></div>
+                </div>
+            </div>
         </div>
+
+        <!-- Footer -->
+        <footer class="py-4 flex justify-end shrink-0">
+            <div id="creatorBranding" class="relative group/creator cursor-pointer">
+                <!-- Social Card Popup -->
+                <div class="absolute bottom-full right-0 mb-0 w-48 opacity-0 translate-y-1 pointer-events-none group-hover/creator:opacity-100 group-hover/creator:translate-y-0 group-hover/creator:pointer-events-auto group-[.active]/creator:opacity-100 group-[.active]/creator:translate-y-0 group-[.active]/creator:pointer-events-auto transition-all duration-300 z-[200]">
+                    <div class="bg-gray-900 border border-gray-700 rounded-xl shadow-2xl overflow-hidden">
+                        <div class="px-4 py-2 border-b border-gray-800 bg-gray-950/50 flex justify-between items-center">
+                            <span class="text-[10px] font-black text-gray-500 uppercase tracking-widest">Connect</span>
+                            <span id="appVersion" class="text-[11px] font-bold text-gray-400 uppercase tracking-tight cursor-default">v1.2.1</span>     
+                        </div>
+                        <div class="p-2 space-y-1">
+                            <a href="https://youtube.com/@Y0kenB" target="_blank" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-red-600/10 text-gray-300 hover:text-red-400 transition-colors group/link">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.016 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.016 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                                <span class="text-xs font-bold">YouTube</span>
+                            </a>
+                            <a href="https://x.com/Y0kenB" target="_blank" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-blue-400/10 text-gray-300 hover:text-blue-400 transition-colors group/link">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                                <span class="text-xs font-bold">x.com</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main Label -->
+                <div class="flex items-center gap-2 px-5 py-2.5 bg-gray-900/40 hover:bg-gray-900/80 border border-gray-800/50 hover:border-orange-500/30 rounded-full backdrop-blur-md transition-all shadow-lg">
+                    <span class="text-[12px] text-gray-400 italic font-medium">Crafted by</span>
+                    <span class="text-[12px] text-orange-500/80 group-hover/creator:text-orange-500 font-black italic tracking-wider transition-colors underline decoration-orange-500/20 underline-offset-4">Y0kenB</span>
+                </div>
+            </div>
+        </footer>
     </div>
 
-    <!-- Creator Branding & Socials -->
-    <div class="fixed bottom-6 right-6 z-[200] group/creator">
-        <!-- Social Card Popup -->
-        <div class="absolute bottom-full right-0 mb-0 w-48 opacity-0 translate-y-1 pointer-events-none group-hover/creator:opacity-100 group-hover/creator:translate-y-0 group-hover/creator:pointer-events-auto transition-all duration-300">
-            <div class="bg-gray-900 border border-gray-700 rounded-xl shadow-2xl overflow-hidden mb-2">
-                <div class="px-4 py-2 border-b border-gray-800 bg-gray-950/50 flex justify-between items-center">
-                    <span class="text-[10px] font-black text-gray-500 uppercase tracking-widest">Connect</span>
-                    <span id="appVersion" class="text-[11px] font-bold text-gray-400 uppercase tracking-tight cursor-default">v0.0.0</span>
-                </div>
-                <div class="p-2 space-y-1">
-                    <a href="https://youtube.com/@Y0kenB" target="_blank" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-red-600/10 text-gray-300 hover:text-red-400 transition-colors group/link">
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.016 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.016 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-                        <span class="text-xs font-bold">YouTube</span>
-                    </a>
-                    <a href="https://x.com/Y0kenB" target="_blank" class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-blue-400/10 text-gray-300 hover:text-blue-400 transition-colors group/link">
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-                        <span class="text-xs font-bold">x.com</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Main Label -->
-        <div class="flex items-center gap-2 px-5 py-2.5 bg-gray-900/40 hover:bg-gray-900/80 border border-gray-800/50 hover:border-orange-500/30 rounded-full backdrop-blur-md transition-all cursor-default shadow-lg">
-            <span class="text-[12px] text-gray-400 italic font-medium">Crafted by</span>
-            <span class="text-[12px] text-orange-500/80 group-hover/creator:text-orange-500 font-black italic tracking-wider transition-colors underline decoration-orange-500/20 underline-offset-4">Y0kenB</span>
-        </div>
-    </div>
-
-    <!-- Hidden state trackers for images -->
+    <!-- Hidden State inputs -->
     <input type="hidden" id="baseImgSrc" class="state-val" value="">
     <input type="hidden" id="insetImgSrc" class="state-val" value="">
 
